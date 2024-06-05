@@ -48,7 +48,7 @@ const Header = () => {
 					src={logo}
 					alt="logo
         "
-					className="w-[80px] md:w-[115px]"
+					className="w-[90px] md:w-[115px]"
 				/>
 				<div className="hidden lg:flex items-center gap-8">
 					{menu.map((item, index) => (
@@ -82,7 +82,7 @@ const Header = () => {
 					</div>
 				</div>
 			</div>
-			<div className="hover:cursor-pointer">
+			<div className="hover:cursor-pointer mt-2">
 				<img
 					src={pfp}
 					alt="profile-image"
