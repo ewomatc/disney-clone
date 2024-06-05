@@ -9,8 +9,11 @@ import {
 	EllipsisVertical,
 } from "lucide-react";
 import Headeritems from "./Headeritems";
+import { useState } from "react";
 
 const Header = () => {
+	const [toggle, setToggle] = useState(false);
+
 	const menu = [
 		{
 			name: "HOME",
@@ -47,24 +50,39 @@ const Header = () => {
         "
 					className="w-[80px] md:w-[115px]"
 				/>
-				<div className="hidden md:flex items-center gap-8">
+				<div className="hidden lg:flex items-center gap-8">
 					{menu.map((item, index) => (
 						<Headeritems key={index} name={item.name} Icon={item.icon} />
 					))}
 				</div>
-				<div className="md:hidden flex items-center gap-8">
+				<div className="lg:hidden flex items-center gap-8 ">
 					{menu.map(
 						(item, index) =>
 							index < 3 && (
-								<Headeritems key={index} name={item.name} Icon={item.icon} />
+								<Headeritems key={index} name={""} Icon={item.icon} />
 							)
 					)}
-					<div className="md:hidden">
+
+					<div className="lg:hidden" onClick={() => setToggle(!toggle)}>
 						<Headeritems name={""} Icon={EllipsisVertical} />
+						{toggle && (
+							<div className="absolute mt-3 bg-[#121212] border border-gray-600 rounded-md py-4 px-5">
+								{menu.map(
+									(item, index) =>
+										index > 2 && (
+											<Headeritems
+												key={index}
+												name={item.name}
+												Icon={item.icon}
+											/>
+										)
+								)}
+							</div>
+						)}
 					</div>
 				</div>
 			</div>
-			<div>
+			<div className="hover:cursor-pointer">
 				<img
 					src={pfp}
 					alt="profile-image"
