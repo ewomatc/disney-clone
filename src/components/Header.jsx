@@ -86,7 +86,7 @@ const Header = () => {
 				<img
 					src={pfp}
 					alt="profile-image"
-					className="w-[40px] object-contain rounded-full border border-gray-500"
+					className="w-[40px] object-contain rounded-full border-gray-500 border-[3px] hover:border transition-all duration-150 ease-in"
 				/>
 			</div>
 		</header>
